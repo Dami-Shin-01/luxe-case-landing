@@ -1,0 +1,124 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Project Setup and Structure",
+        "description": "Initialize the project repository with basic HTML, CSS, and JavaScript files following the Yanolja Group design system references.",
+        "details": "1. Create GitHub repository named 'luxe-case-landing'\n2. Setup basic folder structure:\n   - index.html\n   - css/\n     - styles.css\n     - animations.css\n   - js/\n     - main.js\n     - slider.js\n   - assets/\n     - images/\n     - icons/\n3. Initialize HTML5 boilerplate with proper meta tags for SEO and responsive design\n4. Link CSS and JavaScript files\n5. Setup basic color variables and typography based on Yanolja Group design system\n6. Create a responsive layout skeleton with header, main sections, and footer\n7. Configure GitHub Pages for deployment",
+        "testStrategy": "1. Validate HTML using W3C Validator\n2. Test initial page load time (target < 2 seconds)\n3. Verify responsive meta tags are working\n4. Confirm GitHub Pages deployment is successful\n5. Test basic layout on multiple devices and screen sizes",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Hero Slider Implementation",
+        "description": "Create a fullscreen hero slider with 3 slides featuring automatic and manual navigation with keyboard control support.",
+        "details": "1. Create HTML structure for slider with 3 slides\n2. Style the slider to be fullscreen with CSS\n3. Implement JavaScript for slider functionality:\n   ```javascript\n   // Slider functionality\n   const slider = {\n     currentSlide: 0,\n     slides: document.querySelectorAll('.hero-slide'),\n     interval: null,\n     \n     init() {\n       this.showSlide(this.currentSlide);\n       this.startAutoSlide();\n       this.setupNavigation();\n       this.setupKeyboardControls();\n     },\n     \n     showSlide(index) {\n       // Hide all slides\n       this.slides.forEach(slide => slide.classList.remove('active'));\n       // Show current slide\n       this.slides[index].classList.add('active');\n       this.currentSlide = index;\n     },\n     \n     nextSlide() {\n       const next = (this.currentSlide + 1) % this.slides.length;\n       this.showSlide(next);\n     },\n     \n     prevSlide() {\n       const prev = (this.currentSlide - 1 + this.slides.length) % this.slides.length;\n       this.showSlide(prev);\n     },\n     \n     startAutoSlide() {\n       this.interval = setInterval(() => this.nextSlide(), 5000);\n     },\n     \n     stopAutoSlide() {\n       clearInterval(this.interval);\n     },\n     \n     setupNavigation() {\n       // Create navigation dots\n       const nav = document.createElement('div');\n       nav.className = 'slider-nav';\n       \n       this.slides.forEach((_, index) => {\n         const dot = document.createElement('button');\n         dot.addEventListener('click', () => this.showSlide(index));\n         nav.appendChild(dot);\n       });\n       \n       document.querySelector('.hero-slider').appendChild(nav);\n       \n       // Add prev/next buttons\n       const prevBtn = document.createElement('button');\n       prevBtn.className = 'slider-prev';\n       prevBtn.addEventListener('click', () => this.prevSlide());\n       \n       const nextBtn = document.createElement('button');\n       nextBtn.className = 'slider-next';\n       nextBtn.addEventListener('click', () => this.nextSlide());\n       \n       document.querySelector('.hero-slider').appendChild(prevBtn);\n       document.querySelector('.hero-slider').appendChild(nextBtn);\n     },\n     \n     setupKeyboardControls() {\n       document.addEventListener('keydown', (e) => {\n         if (e.key === 'ArrowRight') this.nextSlide();\n         if (e.key === 'ArrowLeft') this.prevSlide();\n       });\n     }\n   };\n   \n   // Initialize slider\n   document.addEventListener('DOMContentLoaded', () => slider.init());\n   ```\n4. Add CSS transitions for smooth slide changes\n5. Implement pause on hover functionality",
+        "testStrategy": "1. Test automatic slide transition timing (every 5 seconds)\n2. Verify manual navigation with dots and arrows\n3. Test keyboard controls (left/right arrows)\n4. Ensure smooth transitions between slides\n5. Verify slider works on different screen sizes\n6. Test pause on hover functionality\n7. Verify accessibility for keyboard users and screen readers",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Product Collection Grid",
+        "description": "Implement a responsive grid layout for showcasing 4 product cards with hover interactions and a tag system.",
+        "details": "1. Create HTML structure for product collection section:\n   ```html\n   <section class=\"product-collection\">\n     <h2>Our Collections</h2>\n     <div class=\"product-grid\">\n       <!-- Product cards will go here -->\n     </div>\n   </section>\n   ```\n\n2. Create product card component with:\n   - Product image\n   - Product name\n   - Price\n   - Tags (e.g., \"New\", \"Limited Edition\")\n   - Quick view button\n\n3. Style the grid using CSS Grid:\n   ```css\n   .product-grid {\n     display: grid;\n     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n     gap: 2rem;\n     padding: 2rem 0;\n   }\n   \n   .product-card {\n     position: relative;\n     border-radius: 8px;\n     overflow: hidden;\n     transition: transform 0.3s ease, box-shadow 0.3s ease;\n   }\n   \n   .product-card:hover {\n     transform: translateY(-5px);\n     box-shadow: 0 10px 20px rgba(0,0,0,0.1);\n   }\n   \n   /* Tag styling */\n   .product-tag {\n     position: absolute;\n     top: 1rem;\n     right: 1rem;\n     padding: 0.5rem 1rem;\n     border-radius: 4px;\n     font-size: 0.8rem;\n     font-weight: bold;\n     text-transform: uppercase;\n   }\n   \n   .tag-new { background-color: #ff3860; color: white; }\n   .tag-limited { background-color: #ffdd57; color: #333; }\n   ```\n\n4. Implement hover interactions:\n   - Scale effect\n   - Shadow enhancement\n   - Quick view button appearance\n\n5. Make grid responsive for different screen sizes:\n   ```css\n   @media (max-width: 768px) {\n     .product-grid {\n       grid-template-columns: repeat(2, 1fr);\n     }\n   }\n   \n   @media (max-width: 480px) {\n     .product-grid {\n       grid-template-columns: 1fr;\n     }\n   }\n   ```",
+        "testStrategy": "1. Verify grid layout renders correctly on desktop, tablet, and mobile\n2. Test hover interactions on desktop\n3. Ensure touch interactions work on mobile devices\n4. Verify tag system displays correctly\n5. Test image loading and optimization\n6. Check accessibility of product cards\n7. Verify responsive behavior when resizing browser window",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Brand Story Section with Scroll Animation",
+        "description": "Create a 2-column layout for the brand story section with scroll-triggered animations.",
+        "details": "1. Create HTML structure for the brand story section:\n   ```html\n   <section class=\"brand-story\">\n     <div class=\"story-image\">\n       <!-- Brand image or video -->\n     </div>\n     <div class=\"story-content\">\n       <h2>Our Story</h2>\n       <p>Brand story paragraph 1...</p>\n       <p>Brand story paragraph 2...</p>\n       <a href=\"#\" class=\"btn-primary\">Learn More</a>\n     </div>\n   </section>\n   ```\n\n2. Style the 2-column layout using CSS Grid or Flexbox:\n   ```css\n   .brand-story {\n     display: grid;\n     grid-template-columns: 1fr 1fr;\n     gap: 4rem;\n     padding: 5rem 2rem;\n   }\n   \n   @media (max-width: 768px) {\n     .brand-story {\n       grid-template-columns: 1fr;\n     }\n   }\n   ```\n\n3. Implement scroll animations using Intersection Observer API:\n   ```javascript\n   // Scroll animation for brand story section\n   const animateOnScroll = () => {\n     const observer = new IntersectionObserver((entries) => {\n       entries.forEach(entry => {\n         if (entry.isIntersecting) {\n           entry.target.classList.add('animate');\n         }\n       });\n     }, { threshold: 0.1 });\n     \n     // Elements to animate\n     const elements = document.querySelectorAll('.story-image, .story-content h2, .story-content p, .story-content .btn-primary');\n     elements.forEach(el => {\n       observer.observe(el);\n       // Add initial state class\n       el.classList.add('animate-init');\n     });\n   };\n   \n   document.addEventListener('DOMContentLoaded', animateOnScroll);\n   ```\n\n4. Add CSS for animations:\n   ```css\n   /* Initial states */\n   .animate-init {\n     opacity: 0;\n     transform: translateY(30px);\n     transition: opacity 0.6s ease, transform 0.6s ease;\n   }\n   \n   /* Animated states */\n   .animate {\n     opacity: 1;\n     transform: translateY(0);\n   }\n   \n   /* Staggered delays for content elements */\n   .story-content h2.animate-init { transition-delay: 0.1s; }\n   .story-content p:nth-of-type(1).animate-init { transition-delay: 0.3s; }\n   .story-content p:nth-of-type(2).animate-init { transition-delay: 0.5s; }\n   .story-content .btn-primary.animate-init { transition-delay: 0.7s; }\n   ```",
+        "testStrategy": "1. Test scroll animations on different browsers\n2. Verify animations trigger at appropriate scroll positions\n3. Test responsive layout on different screen sizes\n4. Ensure animations don't cause layout shifts\n5. Verify performance impact of animations\n6. Test with reduced motion preferences enabled\n7. Verify accessibility for screen readers",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Premium Features Section with Icon Cards",
+        "description": "Implement a section showcasing 6 premium features of the phone cases using icon-based UI cards.",
+        "details": "1. Create HTML structure for the premium features section:\n   ```html\n   <section class=\"premium-features\">\n     <h2>Premium Quality</h2>\n     <p class=\"section-subtitle\">What makes our cases special</p>\n     \n     <div class=\"features-grid\">\n       <!-- 6 feature cards will go here -->\n     </div>\n   </section>\n   ```\n\n2. Create feature card template:\n   ```html\n   <div class=\"feature-card\">\n     <div class=\"feature-icon\">\n       <!-- SVG icon -->\n     </div>\n     <h3 class=\"feature-title\">Feature Name</h3>\n     <p class=\"feature-description\">Short description of the feature</p>\n   </div>\n   ```\n\n3. Style the features grid using CSS Grid:\n   ```css\n   .features-grid {\n     display: grid;\n     grid-template-columns: repeat(3, 1fr);\n     gap: 2rem;\n     margin-top: 3rem;\n   }\n   \n   .feature-card {\n     background-color: #fff;\n     border-radius: 8px;\n     padding: 2rem;\n     text-align: center;\n     box-shadow: 0 5px 15px rgba(0,0,0,0.05);\n     transition: transform 0.3s ease;\n   }\n   \n   .feature-card:hover {\n     transform: translateY(-5px);\n   }\n   \n   .feature-icon {\n     width: 60px;\n     height: 60px;\n     margin: 0 auto 1.5rem;\n   }\n   \n   .feature-title {\n     margin-bottom: 1rem;\n     font-size: 1.2rem;\n   }\n   \n   /* Responsive adjustments */\n   @media (max-width: 992px) {\n     .features-grid {\n       grid-template-columns: repeat(2, 1fr);\n     }\n   }\n   \n   @media (max-width: 576px) {\n     .features-grid {\n       grid-template-columns: 1fr;\n     }\n   }\n   ```\n\n4. Create 6 feature cards with appropriate icons and descriptions:\n   - Premium Materials\n   - Drop Protection\n   - Slim Design\n   - Wireless Charging Compatible\n   - Antimicrobial Surface\n   - Eco-Friendly\n\n5. Optimize SVG icons for performance and accessibility",
+        "testStrategy": "1. Verify grid layout on different screen sizes\n2. Test hover interactions\n3. Ensure icons load properly and are visible\n4. Check accessibility of icons (proper alt text or aria-labels)\n5. Verify responsive layout adjustments\n6. Test with different content lengths to ensure consistent card heights\n7. Verify color contrast for readability",
+        "priority": "medium",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Statistics Section with Counter Animation",
+        "description": "Create a statistics section with animated counters to showcase global expansion metrics.",
+        "details": "1. Create HTML structure for the statistics section:\n   ```html\n   <section class=\"statistics\">\n     <h2>Global Impact</h2>\n     <div class=\"stats-container\">\n       <div class=\"stat-item\">\n         <div class=\"stat-number\" data-count=\"150\">0</div>\n         <div class=\"stat-label\">Countries</div>\n       </div>\n       <div class=\"stat-item\">\n         <div class=\"stat-number\" data-count=\"2500000\">0</div>\n         <div class=\"stat-label\">Cases Sold</div>\n       </div>\n       <div class=\"stat-item\">\n         <div class=\"stat-number\" data-count=\"98\">0</div>\n         <div class=\"stat-label\">Customer Satisfaction</div>\n       </div>\n       <div class=\"stat-item\">\n         <div class=\"stat-number\" data-count=\"42\">0</div>\n         <div class=\"stat-label\">Design Awards</div>\n       </div>\n     </div>\n   </section>\n   ```\n\n2. Style the statistics section:\n   ```css\n   .statistics {\n     background-color: #f8f9fa;\n     padding: 5rem 2rem;\n     text-align: center;\n   }\n   \n   .stats-container {\n     display: flex;\n     justify-content: space-around;\n     flex-wrap: wrap;\n     margin-top: 3rem;\n   }\n   \n   .stat-item {\n     padding: 1.5rem;\n     min-width: 200px;\n   }\n   \n   .stat-number {\n     font-size: 3rem;\n     font-weight: bold;\n     margin-bottom: 0.5rem;\n     color: #ff3860;\n   }\n   \n   .stat-label {\n     font-size: 1.2rem;\n     color: #333;\n   }\n   \n   @media (max-width: 768px) {\n     .stat-item {\n       flex-basis: 50%;\n     }\n   }\n   \n   @media (max-width: 480px) {\n     .stat-item {\n       flex-basis: 100%;\n     }\n   }\n   ```\n\n3. Implement counter animation using Intersection Observer API:\n   ```javascript\n   // Counter animation\n   const animateCounters = () => {\n     const counters = document.querySelectorAll('.stat-number');\n     const observer = new IntersectionObserver((entries) => {\n       entries.forEach(entry => {\n         if (entry.isIntersecting) {\n           const target = entry.target;\n           const countTo = parseInt(target.getAttribute('data-count'));\n           let count = 0;\n           const duration = 2000; // 2 seconds\n           const increment = countTo / (duration / 16); // 60fps\n           \n           // Start counter animation\n           const timer = setInterval(() => {\n             count += increment;\n             if (count >= countTo) {\n               target.textContent = formatNumber(countTo);\n               clearInterval(timer);\n             } else {\n               target.textContent = formatNumber(Math.floor(count));\n             }\n           }, 16);\n           \n           // Unobserve after animation starts\n           observer.unobserve(target);\n         }\n       });\n     }, { threshold: 0.5 });\n     \n     // Observe all counter elements\n     counters.forEach(counter => {\n       observer.observe(counter);\n     });\n   };\n   \n   // Format numbers with commas for thousands\n   const formatNumber = (num) => {\n     return num.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, \",\");\n   };\n   \n   document.addEventListener('DOMContentLoaded', animateCounters);\n   ```",
+        "testStrategy": "1. Verify counter animations trigger when scrolling to the section\n2. Test animation speed and smoothness\n3. Ensure counters display correctly formatted numbers\n4. Test responsive layout on different screen sizes\n5. Verify performance impact of animations\n6. Test with JavaScript disabled (should show final numbers)\n7. Verify accessibility for screen readers",
+        "priority": "low",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Responsive Design Implementation",
+        "description": "Ensure the entire landing page is responsive and optimized for mobile, tablet, and desktop devices.",
+        "details": "1. Implement responsive meta tag in HTML head:\n   ```html\n   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n   ```\n\n2. Create responsive breakpoints in CSS:\n   ```css\n   /* Base styles (mobile first) */\n   \n   /* Tablet (768px and up) */\n   @media (min-width: 768px) {\n     /* Tablet-specific styles */\n   }\n   \n   /* Desktop (992px and up) */\n   @media (min-width: 992px) {\n     /* Desktop-specific styles */\n   }\n   \n   /* Large Desktop (1200px and up) */\n   @media (min-width: 1200px) {\n     /* Large desktop-specific styles */\n   }\n   ```\n\n3. Implement responsive navigation:\n   ```javascript\n   // Mobile navigation toggle\n   const navToggle = document.querySelector('.nav-toggle');\n   const navMenu = document.querySelector('.nav-menu');\n   \n   navToggle.addEventListener('click', () => {\n     navMenu.classList.toggle('active');\n     navToggle.setAttribute('aria-expanded', \n       navToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'\n     );\n   });\n   ```\n\n4. Optimize images for different screen sizes:\n   ```html\n   <picture>\n     <source srcset=\"assets/images/hero-mobile.jpg\" media=\"(max-width: 767px)\">\n     <source srcset=\"assets/images/hero-tablet.jpg\" media=\"(max-width: 991px)\">\n     <img src=\"assets/images/hero-desktop.jpg\" alt=\"Hero image\">\n   </picture>\n   ```\n\n5. Ensure touch-friendly UI elements for mobile:\n   - Minimum touch target size of 44x44px\n   - Adequate spacing between interactive elements\n   - Replace hover effects with appropriate touch interactions\n\n6. Test and adjust font sizes for readability across devices:\n   ```css\n   html {\n     font-size: 16px; /* Base font size */\n   }\n   \n   @media (min-width: 768px) {\n     html {\n       font-size: 18px;\n     }\n   }\n   ```\n\n7. Implement fluid spacing using relative units (rem, em, %):\n   ```css\n   .container {\n     padding: 1.5rem;\n     max-width: 1200px;\n     margin: 0 auto;\n   }\n   ```",
+        "testStrategy": "1. Test on actual devices (not just browser emulation):\n   - iOS and Android phones\n   - Various tablets\n   - Different desktop screen sizes\n2. Verify layout integrity at various viewport widths\n3. Test touch interactions on mobile devices\n4. Verify font readability across devices\n5. Test load time on mobile networks\n6. Verify images load appropriately for each device\n7. Test navigation usability on small screens\n8. Verify form elements are usable on touch devices\n9. Use Chrome DevTools Lighthouse to test mobile performance",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "GitHub Pages Deployment and Performance Optimization",
+        "description": "Configure GitHub Pages for deployment and optimize the site for performance to meet the target loading time of less than 2 seconds.",
+        "details": "1. Configure GitHub Pages deployment:\n   - Go to repository settings\n   - Navigate to 'Pages' section\n   - Select main branch as source\n   - Save configuration\n\n2. Create a custom domain (optional):\n   - Add CNAME file to repository\n   - Configure DNS settings\n\n3. Optimize images:\n   ```bash\n   # Install imagemin CLI\n   npm install -g imagemin-cli\n   \n   # Optimize JPG images\n   imagemin assets/images/*.jpg --out-dir=assets/images/optimized\n   \n   # Optimize PNG images\n   imagemin assets/images/*.png --out-dir=assets/images/optimized\n   ```\n\n4. Minify CSS and JavaScript:\n   ```bash\n   # Install minification tools\n   npm install -g clean-css-cli uglify-js\n   \n   # Minify CSS\n   cleancss -o css/styles.min.css css/styles.css\n   \n   # Minify JavaScript\n   uglifyjs js/main.js -o js/main.min.js\n   ```\n\n5. Implement lazy loading for images:\n   ```html\n   <img src=\"placeholder.jpg\" data-src=\"actual-image.jpg\" class=\"lazy\" alt=\"Description\">\n   ```\n   \n   ```javascript\n   // Lazy loading implementation\n   document.addEventListener('DOMContentLoaded', () => {\n     const lazyImages = document.querySelectorAll('img.lazy');\n     \n     if ('IntersectionObserver' in window) {\n       const imageObserver = new IntersectionObserver((entries) => {\n         entries.forEach(entry => {\n           if (entry.isIntersecting) {\n             const img = entry.target;\n             img.src = img.dataset.src;\n             img.classList.remove('lazy');\n             imageObserver.unobserve(img);\n           }\n         });\n       });\n       \n       lazyImages.forEach(img => imageObserver.observe(img));\n     } else {\n       // Fallback for browsers without Intersection Observer\n       // Simple scroll-based lazy loading\n     }\n   });\n   ```\n\n6. Add browser caching with .htaccess (if using Apache):\n   ```\n   <IfModule mod_expires.c>\n     ExpiresActive On\n     ExpiresByType image/jpg \"access plus 1 year\"\n     ExpiresByType image/jpeg \"access plus 1 year\"\n     ExpiresByType image/gif \"access plus 1 year\"\n     ExpiresByType image/png \"access plus 1 year\"\n     ExpiresByType text/css \"access plus 1 month\"\n     ExpiresByType application/javascript \"access plus 1 month\"\n   </IfModule>\n   ```\n\n7. Add performance monitoring:\n   ```html\n   <!-- In head section -->\n   <script>\n     // Simple performance monitoring\n     window.performance.mark('start');\n     window.addEventListener('load', () => {\n       window.performance.mark('end');\n       window.performance.measure('pageLoad', 'start', 'end');\n       const pageLoadTime = window.performance.getEntriesByName('pageLoad')[0].duration;\n       console.log(`Page loaded in ${pageLoadTime}ms`);\n     });\n   </script>\n   ```",
+        "testStrategy": "1. Measure page load time using:\n   - Chrome DevTools Network panel\n   - Google PageSpeed Insights\n   - WebPageTest.org\n2. Verify target load time < 2 seconds is achieved\n3. Test on various network conditions (3G, 4G, etc.)\n4. Verify GitHub Pages deployment is successful\n5. Check for any 404 errors or missing resources\n6. Validate HTML, CSS, and JavaScript\n7. Test custom domain configuration (if applicable)\n8. Verify browser caching is working\n9. Test lazy loading functionality\n10. Run Lighthouse audit and address any performance issues",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "status": "in-progress",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-04T16:31:44.434Z",
+      "updated": "2025-10-04T16:34:00.637Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

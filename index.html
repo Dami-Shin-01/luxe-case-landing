@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE CASE - Premium Phone Case Brand</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>LUXE CASE</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#products">Products</a></li>
+                <li><a href="#story">Story</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-lang">
+                <button class="lang-btn active">Ko</button>
+                <button class="lang-btn">En</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Slider -->
+    <section class="hero-slider">
+        <div class="hero-slide active">
+            <div class="hero-content">
+                <h2 class="hero-title">Elevate Your Style</h2>
+                <p class="hero-subtitle">프리미엄 소재로 만든<br>당신만의 특별한 케이스</p>
+            </div>
+            <div class="hero-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+        </div>
+        <div class="hero-slide">
+            <div class="hero-content">
+                <h2 class="hero-title">Protection Meets Design</h2>
+                <p class="hero-subtitle">완벽한 보호력과 디자인의<br>완벽한 조화</p>
+            </div>
+            <div class="hero-bg" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+        </div>
+        <div class="hero-slide">
+            <div class="hero-content">
+                <h2 class="hero-title">Crafted for Excellence</h2>
+                <p class="hero-subtitle">장인정신으로 완성한<br>프리미엄 퀄리티</p>
+            </div>
+            <div class="hero-bg" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+        </div>
+        
+        <div class="slider-controls">
+            <button class="slider-btn prev" onclick="changeSlide(-1)">‹</button>
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+            <button class="slider-btn next" onclick="changeSlide(1)">›</button>
+        </div>
+    </section>
+
+    <!-- Latest Products Section -->
+    <section class="section latest-products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Collection</h2>
+                <p>최신 컬렉션을 만나보세요</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="product-tag">NEW</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Velvet Touch Series</h3>
+                        <p>실크 같은 촉감의 프리미엄 벨벳 케이스</p>
+                        <span class="product-price">₩89,000</span>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="product-tag">BEST</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Carbon Fiber Pro</h3>
+                        <p>군용 등급 카본 파이버 소재</p>
+                        <span class="product-price">₩125,000</span>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="product-tag">ECO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Eco Leather Collection</h3>
+                        <p>지속가능한 친환경 가죽 케이스</p>
+                        <span class="product-price">₩95,000</span>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <span class="product-tag">LIMITED</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Gold Edition</h3>
+                        <p>24K 골드 플레이팅 한정판</p>
+                        <span class="product-price">₩199,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section class="section brand-story" id="story">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text fade-in">
+                    <h2>Redefining Premium<br>Phone Protection</h2>
+                    <p>LUXE CASE는 단순한 폰케이스를 넘어,<br>당신의 라이프스타일을 완성하는 프리미엄 액세서리입니다.</p>
+                    <p>최고급 소재와 장인의 손길이 만나<br>완벽한 보호력과 우아한 디자인을 선사합니다.</p>
+                </div>
+                <div class="story-visual fade-in">
+                    <div class="visual-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <h3>Since 2020</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Premium Features</h2>
+                <p>럭스케이스만의 프리미엄 특징</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Materials</h3>
+                    <p>이탈리아 천연 가죽, 일본산 카본 파이버 등 세계 최고급 소재만을 사용합니다.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Military Grade Protection</h3>
+                    <p>MIL-STD-810G 인증을 받은 군용 등급 보호력으로 어떤 충격에도 안전합니다.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">✨</div>
+                    <h3>Handcrafted Design</h3>
+                    <p>숙련된 장인이 하나하나 정성스럽게 제작하여 완벽한 퀄리티를 보장합니다.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>지속 가능한 친환경 소재와 공정으로 환경을 생각합니다.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Perfect Fit</h3>
+                    <p>3D 스캔 기술로 모든 버튼과 포트에 완벽하게 맞는 정밀한 설계입니다.</p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Customization</h3>
+                    <p>이니셜, 로고 등 개인 맞춤 각인 서비스로 당신만의 케이스를 만들어보세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section stats">
+        <div class="container">
+            <h2 class="stats-title">Global Presence</h2>
+            <p class="stats-subtitle">전세계가 선택한 프리미엄 브랜드</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">국가</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-target="150">0</div>
+                    <div class="stat-label">K+ 고객</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">% 만족도</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta">
+        <div class="container">
+            <h2>나만의 프리미엄 케이스를<br>지금 만나보세요</h2>
+            <button class="cta-button">컬렉션 둘러보기</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>LUXE CASE</h3>
+                    <p>프리미엄 폰케이스의 새로운 기준</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#">Velvet Touch Series</a></li>
+                        <li><a href="#">Carbon Fiber Pro</a></li>
+                        <li><a href="#">Eco Leather Collection</a></li>
+                        <li><a href="#">Gold Edition</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>E-Mail. hello@luxecase.com</p>
+                    <p>Tel. +82-2-1234-5678</p>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© LUXE CASE Co. Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
