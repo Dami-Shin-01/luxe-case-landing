@@ -1,3 +1,4 @@
+
 # LUXE CASE - Premium Phone Case Landing Page
 
 야놀자 그룹의 디자인 시스템을 참고하여 제작된 프리미엄 폰케이스 브랜드 랜딩 페이지입니다.
@@ -20,6 +21,9 @@
 ├── styles.css          # 스타일시트
 ├── script.js           # JavaScript 인터랙션
 ├── README.md           # 프로젝트 문서
+├── DESIGN_SYSTEM.md    # 디자인 시스템 가이드 ⭐
+├── DEPLOYMENT.md       # 배포 가이드
+├── DEPLOYMENT_INFO.md  # 배포 정보
 └── ASSET_GUIDE.md      # 이미지 및 에셋 가이드
 ```
 
@@ -84,6 +88,24 @@ python -m http.server 8000
 - 모바일 (< 480px)
 - 태블릿 (< 768px)
 - 데스크탑 (> 768px)
+
+## 🎨 디자인 시스템
+
+이 프로젝트에서 사용된 디자인 시스템은 별도의 문서로 제공됩니다.  
+다른 프로젝트에도 적용할 수 있도록 상세하게 작성되었습니다.
+
+**📖 [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) 참고**
+
+### 포함 내용:
+- ✨ 색상 시스템 (Primary, Secondary, Gradients)
+- 📝 타이포그래피 스케일
+- 📐 Grid & 레이아웃 시스템
+- 📏 간격 시스템 (8px 기반)
+- 🧩 재사용 가능한 컴포넌트
+- ✨ 애니메이션 라이브러리
+- 📱 반응형 브레이크포인트
+- 🌟 그림자 & 이펙트
+- 💻 실제 구현 예제
 
 ## 🎨 컬러 팔레트
 
